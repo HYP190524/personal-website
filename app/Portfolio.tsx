@@ -159,7 +159,20 @@ export default function Portfolio() {
           <a href="#projects">项目经历</a>
           <a href="#certificates">课程证书</a>
         </nav>
-        <a className="nav-contact" href="mailto:hyp190524@126.com">联系我</a>
+        <details className="contact-menu">
+          <summary>联系我</summary>
+          <div className="contact-popover">
+            <p>保持联系</p>
+            <a href="mailto:hyp190524@163.com">
+              <span>邮箱</span>
+              <strong>hyp190524@163.com</strong>
+            </a>
+            <a href="tel:18357132117">
+              <span>电话</span>
+              <strong>18357132117</strong>
+            </a>
+          </div>
+        </details>
       </header>
 
       <section className="hero section-shell" id="top">
@@ -266,7 +279,7 @@ export default function Portfolio() {
             <article className="experience-card moonshot-card">
               <header>
                 <div>
-                  <p className="card-kicker">近期经历</p>
+                  <p className="card-kicker">2025.10 — 2026.01</p>
                   <h3>月之暗面 · Kimi</h3>
                 </div>
                 <p className="experience-role">搜索产品运营 / AI 搜索产品</p>
@@ -327,7 +340,7 @@ export default function Portfolio() {
 
         <div className="evidence-carousel section-shell">
           <div className="evidence-controls">
-            <p>经历证据</p>
+            <p>用数字说话</p>
             <div>
               <button type="button" onClick={() => moveEvidence(-1)} aria-label="上一项">←</button>
               <button type="button" onClick={() => moveEvidence(1)} aria-label="下一项">→</button>
@@ -357,8 +370,9 @@ export default function Portfolio() {
             return (
               <article className={"project-panel " + (isActive ? "is-active" : "")} key={project.name} role="listitem">
                 <button type="button" onClick={() => setActiveProject(index)} aria-expanded={isActive}>
-                  <span>{project.short}</span>
-                  <span aria-hidden="true">{isActive ? "—" : "+"}</span>
+                  <span className="project-short">{project.short}</span>
+                  <span className="project-more">{isActive ? "正在查看" : "查看更多"}</span>
+                  <span className="project-toggle" aria-hidden="true">{isActive ? "—" : "+"}</span>
                 </button>
                 <div className="project-content" aria-hidden={!isActive}>
                   <div className="project-topline">
@@ -433,7 +447,7 @@ export default function Portfolio() {
         <div className="section-shell">
           <p className="eyebrow">LET&apos;S BUILD SOMETHING USEFUL</p>
           <h2>有一个值得<br />认真解决的问题？</h2>
-          <a className="footer-mail" href="mailto:hyp190524@126.com">hyp190524@126.com</a>
+          <a className="footer-mail" href="mailto:hyp190524@163.com">hyp190524@163.com</a>
           <div className="footer-bottom">
             <p>黄奕平 · AI Product Manager</p>
             <nav aria-label="页脚链接">

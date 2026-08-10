@@ -320,7 +320,7 @@ export default function Portfolio() {
                   </ul>
                   </section>
                   <div className="experience-capability">
-                    <p>这段经历体现的能力</p>
+                    <p>工作能力</p>
                     <strong>AI 产品设计、搜索产品、模型评测、产品工程化、跨团队协作。</strong>
                   </div>
                 </div>
@@ -365,7 +365,7 @@ export default function Portfolio() {
                     </ul>
                   </section>
                   <div className="experience-capability">
-                    <p>这段经历体现的能力</p>
+                    <p>工作能力</p>
                     <strong>数据分析、增长实验、策略运营、供需匹配、跨团队协作。</strong>
                   </div>
                 </div>

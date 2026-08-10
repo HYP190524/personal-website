@@ -284,27 +284,47 @@ export default function Portfolio() {
                 </div>
                 <p className="experience-role">搜索产品运营 / AI 搜索产品</p>
               </header>
+              <p className="experience-label">工作简介</p>
               <p className="experience-intro">
                 深度参与 Kimi 搜索产品和大模型配套工具建设，实际承担 Shopping Tool 从需求研究、方案设计、Demo 开发，到评测、上线和持续迭代的完整产品经理工作。
               </p>
-              <div className="experience-detail-grid">
-                <div>
+              <div className="experience-metrics">
+                <div><strong>0→1</strong><span>AI 购物搜索产品</span></div>
+                <div><strong>10万+</strong><span>搜索质量原始语料</span></div>
+                <div><strong>100+</strong><span>产品问题闭环</span></div>
+              </div>
+              <details className="experience-details">
+                <summary>
+                  <span>查看具体工作内容</span>
+                  <span className="summary-toggle" aria-hidden="true" />
+                </summary>
+                <div className="details-body">
+                  <section>
                   <h4>Shopping Tool 0→1</h4>
                   <ul>
-                    <li>建立 AI 购物竞品框架，从用户反馈与 Badcase 归纳五类核心问题</li>
-                    <li>完成产品架构、交互、异常兜底和结果排序方案</li>
-                    <li>参与 Demo 与业务代码开发，将检索、聚合和比价策略落地</li>
+                      <li>调研 Perplexity、豆包、秘塔等 AI 购物产品，从搜索入口、商品卡片、比价方式和商业链路等维度建立竞品分析框架。</li>
+                      <li>从用户反馈和真实 Badcase 中总结检索不准、商品过少、比价失效、信息时效性不足等核心问题。</li>
+                      <li>独立完成产品架构、交互方式、异常兜底和结果排序方案设计。</li>
+                      <li>建立覆盖不同购物场景的产品评测体系，将主观体验转化为可量化、可回归的质量指标。</li>
+                      <li>参与产品 Demo 和业务代码开发，将关键词清洗、查询泛化、商品聚合和比价策略落实为可运行功能。</li>
+                      <li>汇总并管理 100+ 产品问题，持续推进搜索结果、商品卡片和比价体验优化。</li>
                   </ul>
-                </div>
-                <div>
-                  <h4>搜索质量与评测</h4>
+                  </section>
+                  <section>
+                    <h4>搜索质量与评测体系</h4>
                   <ul>
-                    <li>建立问题采集、归因、训练样本与模型验证闭环</li>
-                    <li>从 10万+ 原始语料中整理高价值搜索样本</li>
-                    <li>设计 A/B 实验，验证 Prompt 与 Few-shot 对搜索效果的影响</li>
+                      <li>建立用户问题采集、问题归因、训练样本构建和模型验证的 Badcase 闭环。</li>
+                      <li>从 10万+ 原始语料中筛选和整理高价值搜索样本。</li>
+                      <li>设计 A/B 对照实验，评估 Prompt 和 Few-shot 对搜索效果的影响。</li>
+                      <li>参与站点可信度分级、搜索来源质量和专业内容检索方案建设。</li>
                   </ul>
+                  </section>
+                  <div className="experience-capability">
+                    <p>这段经历体现的能力</p>
+                    <strong>AI 产品设计、搜索产品、模型评测、产品工程化、跨团队协作。</strong>
+                  </div>
                 </div>
-              </div>
+              </details>
               <div className="experience-tags">
                 <span>AI 搜索</span><span>产品 0→1</span><span>模型评测</span><span>产品工程化</span>
               </div>
@@ -318,19 +338,38 @@ export default function Portfolio() {
                 </div>
                 <p className="experience-role">产品运营实习生</p>
               </header>
+              <p className="experience-label">工作简介</p>
               <p className="experience-intro">
                 负责美妆行业商家经营数据分析、选品策略、达人匹配与大促运营，通过数据看板和业务实验支持平台 GMV 增长。
               </p>
-              <div className="kuaishou-metrics">
+              <div className="experience-metrics experience-metrics-four">
                 <div><strong>6万+</strong><span>商家经营数据</span></div>
                 <div><strong>+60%</strong><span>A/B 实验 GMV</span></div>
                 <div><strong>120%</strong><span>818 GMV 完成度</span></div>
+                <div><strong>25%</strong><span>合作达成率提升</span></div>
               </div>
-              <ul className="experience-bullets">
-                <li>使用 SQL 搭建数据看板，持续输出业务周报与日报</li>
-                <li>完成 500+ SKU 与 70+ 达人匹配，合作达成率提升 25%</li>
-                <li>推动 200+ 品牌、MCN 与头部达人建立合作</li>
-              </ul>
+              <details className="experience-details">
+                <summary>
+                  <span>查看具体工作内容</span>
+                  <span className="summary-toggle" aria-hidden="true" />
+                </summary>
+                <div className="details-body">
+                  <section>
+                    <h4>核心工作与成果</h4>
+                    <ul>
+                      <li>负责 6万+ 商家经营数据的监测与分析，使用 SQL 搭建数据看板并输出周报、日报。</li>
+                      <li>主导直播切片 A/B 实验，验证短视频对直播转化的提升效果，相关 GMV 提升 60%。</li>
+                      <li>大促期间通过 GMV、开播率等指标识别增长机会，818 GMV 完成度达到 120%。</li>
+                      <li>基于达人粉丝画像和历史销售数据，完成 500+ SKU 与70+ 达人的匹配，合作达成率提升 25%。</li>
+                      <li>协助落地“2024美妆选品会”，推动 200+ 品牌、MCN 与头部达人建立合作。</li>
+                    </ul>
+                  </section>
+                  <div className="experience-capability">
+                    <p>这段经历体现的能力</p>
+                    <strong>数据分析、增长实验、策略运营、供需匹配、跨团队协作。</strong>
+                  </div>
+                </div>
+              </details>
               <div className="experience-tags">
                 <span>数据分析</span><span>增长实验</span><span>策略运营</span><span>跨团队协作</span>
               </div>

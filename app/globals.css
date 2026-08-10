@@ -783,6 +783,13 @@ img {
 
 .evidence-controls p {
   margin: 0;
+  color: var(--white);
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 3vw, 3.2rem);
+  font-weight: 760;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-transform: none;
 }
 
 .evidence-controls div {
@@ -793,18 +800,29 @@ img {
 .evidence-controls button {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  color: var(--white);
-  background: transparent;
+  width: 54px;
+  height: 54px;
+  border: 2px solid var(--white);
+  font-size: 1.25rem;
+  font-weight: 780;
   cursor: pointer;
-  transition: color 180ms ease, background 180ms ease;
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.evidence-controls button:first-child {
+  color: var(--ink);
+  background: var(--lime);
+}
+
+.evidence-controls button:last-child {
+  color: var(--white);
+  background: var(--blue);
 }
 
 .evidence-controls button:hover {
   color: var(--ink);
-  background: var(--lime);
+  background: var(--white);
+  transform: translateY(-2px);
 }
 
 .evidence-slide {

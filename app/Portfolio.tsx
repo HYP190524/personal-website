@@ -9,153 +9,84 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
-const bentoItems = [
+const skillGroups = [
+  "用户研究",
+  "竞品分析",
+  "PRD",
+  "Figma / Axure",
+  "Prompt Engineering",
+  "模型评测",
+  "Python",
+  "SQL",
+  "Pandas",
+  "Tableau",
+  "Git",
+  "API",
+];
+
+const experienceEvidence = [
+  { value: "0 → 1", label: "Shopping Tool", copy: "从用户问题、产品设计到评测与上线迭代" },
+  { value: "10W+", label: "搜索质量语料", copy: "建立问题归因、样本构建与模型验证闭环" },
+  { value: "100+", label: "产品问题", copy: "持续推进搜索结果、商品卡片与比价体验优化" },
+  { value: "+60%", label: "快手实验结果", copy: "通过 A/B 实验验证直播切片的 GMV 提升" },
+];
+
+const projects = [
   {
-    className: "bento-wide",
-    kicker: "Product craft",
-    value: "0 → 1",
-    title: "AI 产品完整链路",
-    copy: "从用户问题、竞品分析和 PRD，到评测体系、代码协作与上线迭代。",
+    short: "30-MIN MEAL",
+    name: "30分钟吃上饭",
+    subtitle: "Coze Workflow 驱动的 AI 食谱推荐微信小程序",
+    summary:
+      "面向工作日下班后“不知道吃什么、做饭时间有限”的用户，以“总耗时不超过30分钟”为硬约束，生成结构化食谱与烹饪步骤。",
+    work: [
+      "完成用户痛点分析、需求定义、PRD 与 Figma 交互原型",
+      "设计 Coze Workflow、Prompt Engineering 与 JSON Schema 双重约束",
+      "使用 Cursor 辅助完成小程序前端、API 鉴权和数据解析",
+      "以“食谱详情点击率”为首阶段核心指标，规划社区与积分机制",
+    ],
+    tags: ["AI Product", "Coze", "WeChat Mini Program", "Figma", "Cursor"],
+    link: "https://www.notion.so/30-PRD-281332f9082c800489c0c90d2768af05?source=copy_link",
+    linkLabel: "查看产品 PRD",
+    metric: "MVP",
   },
   {
-    className: "bento-small bento-blue",
-    kicker: "Evaluation",
-    value: "10W+",
-    title: "模型效果工作量",
-    copy: "把模糊体验拆成可标注、可复现、可追踪的质量标准。",
-  },
-  {
-    className: "bento-small bento-lime",
-    kicker: "Iteration",
-    value: "100+",
-    title: "问题闭环",
-    copy: "按频率、严重度与置信度管理问题，而不是凭感觉改产品。",
-  },
-  {
-    className: "bento-third bento-dark",
-    kicker: "Build",
-    value: "MR → main",
-    title: "Product × Code",
-    copy: "能读代码，也能把产品判断落实为可合并、可验证的改动。",
-  },
-  {
-    className: "bento-third",
-    kicker: "Research",
-    value: "5",
-    title: "核心场景",
-    copy: "围绕真实任务设计，而不是围绕功能清单堆叠。",
-  },
-  {
-    className: "bento-third bento-blue",
-    kicker: "Growth",
-    value: "+120%",
-    title: "内容系统效率",
-    copy: "用标准化选题与复盘机制，让高潜内容产出可持续。",
+    short: "FEMIMATCH",
+    name: "Femimatch",
+    subtitle: "基于 BERT 的性别议题语义分类与知识推荐系统",
+    summary:
+      "针对性别议题内容碎片化、理论理解门槛较高的问题，训练文本分类模型，并把分类结果连接到代表人物与阅读材料推荐。",
+    work: [
+      "搜集并清洗 1200 条文本语料，建立可训练的分类数据集",
+      "在 Google Colab 完成 BERT 模型训练和参数调整",
+      "将文本分类准确率提升至 86%",
+      "通过 Hugging Face 与 Gradio 实现可交互的端到端 AI 原型",
+    ],
+    tags: ["BERT", "NLP", "Python", "Hugging Face", "Gradio"],
+    link: "https://huggingface.co/spaces/JulieH0524/FemiMatch",
+    linkLabel: "体验在线 Demo",
+    metric: "86%",
   },
 ];
 
-const shoppingStages = [
-  {
-    index: "01",
-    title: "找到真问题",
-    meta: "3 个竞品 · 5 个核心痛点",
-    copy: "不从“做一个购物功能”出发，而是从用户搜索商品时的犹豫、比较与决策成本出发。",
-  },
-  {
-    index: "02",
-    title: "定义产品形态",
-    meta: "需求拆解 · 交互框架 · PRD",
-    copy: "把复杂信息压缩为可理解的候选、证据与行动，让模型能力真正进入决策流程。",
-  },
-  {
-    index: "03",
-    title: "让质量可衡量",
-    meta: "C = 0.85A + 0.15B",
-    copy: "建立覆盖答案质量与来源质量的评分体系，让讨论从主观偏好变成可验证的产品判断。",
-  },
-  {
-    index: "04",
-    title: "把规则写进产品",
-    meta: "Prompt · 数据 · 代码协作",
-    copy: "把策略沉淀为模型指令、数据规则和工程改动，并与研发共同完成验证。",
-  },
-  {
-    index: "05",
-    title: "上线、测量、再迭代",
-    meta: "100+ issues · 高频回归",
-    copy: "建立问题池和回归机制，持续追踪高频失败模式，让每次发布都带来可见的质量增量。",
-  },
-];
-
-const accordions = [
-  {
-    label: "SEARCH QUALITY",
-    title: "搜索质量系统",
-    metric: "10W+",
-    copy: "围绕相关性、可信度、时效性与表达质量构建评测框架，推动跨团队质量共识。",
-  },
-  {
-    label: "SOURCE TRUST",
-    title: "来源可信层",
-    metric: "0→1",
-    copy: "设计站点分级与证据使用规则，让答案不只“看起来正确”，也能说明为什么可信。",
-  },
-  {
-    label: "ACADEMIC",
-    title: "学术搜索探索",
-    metric: "B2B",
-    copy: "从内容价值、授权边界到商业路径，探索专业内容在 AI 搜索中的产品化机会。",
-  },
-  {
-    label: "PROTOTYPES",
-    title: "更早的 AI 原型",
-    metric: "3+",
-    copy: "覆盖智能体、工作流与内容工具，用快速原型验证需求，再决定什么值得继续做。",
-  },
-];
-
-const signals = [
-  { metric: "0 → 1", label: "Shopping Tool", detail: "从问题发现到上线闭环" },
-  { metric: "10W+", label: "Search Quality", detail: "模型效果建设工作量" },
-  { metric: "+60%", label: "Kuaishou Growth", detail: "账号阶段性增长" },
-];
-
-const journey = [
-  {
-    time: "MOST RECENT",
-    place: "月之暗面 · Kimi",
-    role: "搜索产品运营 / AI 产品",
-    copy: "承担 Shopping Tool 产品经理全链路，并参与搜索质量、站点可信度与学术搜索商业化探索。",
-  },
-  {
-    time: "2024",
-    place: "快手",
-    role: "增长与内容运营",
-    copy: "搭建选题、生产与复盘机制，通过数据实验提升内容效率与账号增长。",
-  },
-  {
-    time: "2025 — 2028",
-    place: "华东师范大学",
-    role: "硕士 · 新闻与传播",
-    copy: "关注技术、内容和人之间的关系，并把传播视角带进产品判断。",
-  },
-  {
-    time: "2021 — 2025",
-    place: "西北大学",
-    role: "本科 · 新闻传播",
-    copy: "建立研究、表达与叙事的底层能力，开始用产品方法解决真实问题。",
-  },
+const certificates = [
+  { title: "Ethics of AI", image: "/certificates/cert-ethics-ai.png", type: "AI 与数字技术" },
+  { title: "Programming in Java", image: "/certificates/cert-java-study.png", type: "计算机与数据" },
+  { title: "Operating Systems", image: "/certificates/cert-os-study.png", type: "计算机与数据" },
+  { title: "Advanced Programming", image: "/certificates/cert-advanced-programming.png", type: "计算机与数据" },
+  { title: "Data Analysis with Python", image: "/certificates/cert-data-analysis.png", type: "数据分析" },
+  { title: "Introduction to Programming", image: "/certificates/cert-intro-programming.png", type: "计算机基础" },
 ];
 
 export default function Portfolio() {
   const root = useRef<HTMLElement>(null);
-  const [activeCase, setActiveCase] = useState(0);
+  const [activeProject, setActiveProject] = useState(0);
+  const [evidenceIndex, setEvidenceIndex] = useState(0);
 
   useGSAP(
     () => {
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (reduced) {
-        gsap.set([".hero-kicker", ".hero-title span", ".hero-copy", ".hero-actions", ".hero-portrait"], {
+        gsap.set([".floating-nav", ".hero-kicker", ".hero-title span", ".hero-copy", ".hero-actions", ".hero-portrait"], {
           clearProps: "all",
         });
         return;
@@ -163,62 +94,48 @@ export default function Portfolio() {
 
       const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
       intro
-        .from(".floating-nav", { y: -24, opacity: 0, duration: 0.7 })
-        .from(".hero-kicker", { y: 24, opacity: 0, duration: 0.55 }, "-=0.25")
-        .from(".hero-title span", { yPercent: 110, rotate: 1.5, duration: 0.9, stagger: 0.09 }, "-=0.25")
-        .from([".hero-copy", ".hero-actions"], { y: 28, opacity: 0, duration: 0.65, stagger: 0.08 }, "-=0.4")
-        .from(".hero-portrait", { scale: 0.88, opacity: 0, rotate: 3, duration: 0.9 }, "-=0.8");
+        .from(".floating-nav", { y: -24, opacity: 0, duration: 0.65 })
+        .from(".hero-kicker", { y: 20, opacity: 0, duration: 0.5 }, "-=0.2")
+        .from(".hero-title span", { yPercent: 105, duration: 0.85, stagger: 0.08 }, "-=0.2")
+        .from([".hero-copy", ".hero-actions"], { y: 24, opacity: 0, duration: 0.6, stagger: 0.08 }, "-=0.35")
+        .from(".hero-portrait", { y: 36, scale: 0.9, rotate: 4, opacity: 0, duration: 0.8 }, "-=0.7");
 
-      gsap.fromTo(
-        ".hero-portrait img",
-        { scale: 1.08 },
-        {
-          scale: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.7,
-          },
+      ScrollTrigger.batch(".reveal-block", {
+        start: "top 86%",
+        once: true,
+        onEnter: (elements) => {
+          gsap.from(elements, {
+            y: 46,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "power3.out",
+          });
         },
-      );
-
-      gsap.utils.toArray<HTMLElement>(".case-stage").forEach((stage) => {
-        gsap.from(stage, {
-          opacity: 0.28,
-          scale: 0.94,
-          y: 70,
-          ease: "none",
-          scrollTrigger: {
-            trigger: stage,
-            start: "top 86%",
-            end: "top 42%",
-            scrub: true,
-          },
-        });
       });
 
-      gsap.from(".reveal-word", {
-        opacity: 0.12,
-        y: 18,
-        stagger: 0.035,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".manifesto-copy",
-          start: "top 80%",
-          end: "bottom 55%",
-          scrub: 0.8,
-        },
+      gsap.utils.toArray<HTMLElement>(".experience-card").forEach((card) => {
+        gsap.from(card, {
+          y: 90,
+          scale: 0.94,
+          opacity: 0.35,
+          ease: "none",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 88%",
+            end: "top 46%",
+            scrub: 0.7,
+          },
+        });
       });
 
       const media = gsap.matchMedia();
       media.add("(min-width: 1081px)", () => {
         ScrollTrigger.create({
-          trigger: ".case-grid",
-          start: "top 96px",
+          trigger: ".experience-layout",
+          start: "top 108px",
           end: "bottom bottom",
-          pin: ".case-sticky",
+          pin: ".experience-sticky",
           pinSpacing: false,
         });
       });
@@ -228,41 +145,37 @@ export default function Portfolio() {
     { scope: root },
   );
 
+  const moveEvidence = (direction: number) => {
+    setEvidenceIndex((current) => (current + direction + experienceEvidence.length) % experienceEvidence.length);
+  };
+
   return (
-    <main ref={root}>
+    <main ref={root} className="site-main">
       <header className="floating-nav" aria-label="主导航">
-        <a className="nav-mark" href="#top" aria-label="返回首页">
-          YP
-        </a>
+        <a className="nav-mark" href="#top" aria-label="返回首页">YP</a>
         <nav>
-          <a href="#work">Work</a>
-          <a href="#journey">Journey</a>
-          <a href="#about">About</a>
+          <a href="#profile">个人简介</a>
+          <a href="#experience">实习经历</a>
+          <a href="#projects">项目经历</a>
+          <a href="#certificates">课程证书</a>
         </nav>
-        <a className="nav-contact" href="mailto:18357132117@163.com">
-          Let&apos;s talk
-        </a>
+        <a className="nav-contact" href="mailto:hyp190524@126.com">联系我</a>
       </header>
 
       <section className="hero section-shell" id="top">
         <div className="hero-main">
-          <p className="hero-kicker">AI PRODUCT MANAGER · BASED IN CHINA</p>
+          <p className="hero-kicker">黄奕平 · AI PRODUCT MANAGER</p>
           <h1 className="hero-title">
-            <span>I turn ambiguous</span>
-            <span>AI problems into</span>
-            <span className="hero-accent">products that ship.</span>
+            <span>把模糊的 AI 问题，</span>
+            <span className="hero-accent">变成真正上线的产品。</span>
           </h1>
           <div className="hero-bottom">
             <p className="hero-copy">
-              我是黄奕平。用研究找到真正的问题，用评测建立质量共识，再和团队一起把判断变成上线结果。
+              我关注 AI 搜索、智能工具与大模型产品体验，具备从用户研究、需求定义，到数据评测、代码协作和上线迭代的完整实践经验。
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#work">
-                看我的工作
-              </a>
-              <a className="button button-secondary" href="mailto:18357132117@163.com">
-                和我聊聊
-              </a>
+              <a className="button button-primary" href="#experience">查看实习经历</a>
+              <a className="button button-secondary" href="/yiping-huang-resume-2025.pdf" download>下载个人简历</a>
             </div>
           </div>
         </div>
@@ -270,90 +183,202 @@ export default function Portfolio() {
           <div className="portrait-frame">
             <img src="/profile.png" alt="黄奕平的肖像" />
           </div>
-          <figcaption>
-            <span>产品判断</span>
-            <span>研究深度</span>
-            <span>动手能力</span>
-          </figcaption>
+          <figcaption>上海 · AI 产品经理 / AI 产品运营</figcaption>
         </figure>
       </section>
 
-      <section className="capabilities section-shell" aria-labelledby="capabilities-title">
-        <div className="section-heading">
-          <p className="eyebrow">HOW I WORK</p>
-          <h2 id="capabilities-title">不只写 PRD，<br />也让结果发生。</h2>
+      <section className="profile chapter section-shell" id="profile" aria-labelledby="profile-title">
+        <div className="chapter-heading reveal-block">
+          <p className="eyebrow">PROFILE</p>
+          <h2 id="profile-title">个人简介</h2>
+          <p>传播研究让我理解人和信息，数据与技术让我把判断变成可以验证的产品。</p>
         </div>
-        <div className="bento-grid">
-          {bentoItems.map((item) => (
-            <article className={"bento-card " + item.className} key={item.title}>
-              <div>
-                <p className="card-kicker">{item.kicker}</p>
-                <p className="card-value">{item.value}</p>
-              </div>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.copy}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
 
-      <section className="featured-case" id="work" aria-labelledby="shopping-title">
-        <div className="case-intro section-shell">
-          <p className="eyebrow">FEATURED CASE · KIMI</p>
-          <h2 id="shopping-title">Shopping<br />Tool</h2>
-          <p>把一次开放式搜索，变成一条更可靠的消费决策路径。</p>
+        <div className="profile-bento">
+          <article className="profile-card edu-card edu-master reveal-block">
+            <p className="card-kicker">2025.09 — 2028.07 · 上海</p>
+            <div>
+              <h3>华东师范大学</h3>
+              <p className="card-lead">数字媒体艺术 · 硕士</p>
+              <p>传播学院。关注数字媒体、智能产品、用户体验与内容传播，探索 AI 技术在信息获取和数字产品中的应用。</p>
+            </div>
+          </article>
+
+          <article className="profile-card edu-card edu-bachelor reveal-block">
+            <p className="card-kicker">2021.09 — 2025.07 · 西安</p>
+            <div>
+              <h3>西北大学</h3>
+              <p className="card-lead">网络与新媒体 · 本科</p>
+              <p>均分 89，专业前 5%，推免华东师范大学。建立新闻传播、内容研究、用户洞察与数字产品基础。</p>
+            </div>
+          </article>
+
+          <article className="profile-card courses-card reveal-block">
+            <p className="card-kicker">相关课程</p>
+            <ul>
+              <li>AI Ethics</li>
+              <li>Java / Advanced Programming</li>
+              <li>Operating Systems</li>
+              <li>Data Analysis with Python</li>
+            </ul>
+          </article>
+
+          <article className="profile-card ability-card reveal-block">
+            <p className="card-kicker">相关技能</p>
+            <div className="ability-columns">
+              <div>
+                <h3>产品与 AI</h3>
+                <p>用户研究、竞品分析、PRD、Figma、Axure、Prompt Engineering、模型评测、Coze、BERT</p>
+              </div>
+              <div>
+                <h3>数据与开发</h3>
+                <p>Python、Java、SQL、NumPy、Pandas、Tableau、Git、API 与 JSON 数据处理</p>
+              </div>
+            </div>
+          </article>
+
+          <article className="profile-card language-card reveal-block">
+            <p className="card-kicker">语言能力</p>
+            <p className="language-score">TOEFL 104</p>
+            <p>CET-6 600+ · GRE 324</p>
+            <p>英语可作为工作语言</p>
+          </article>
         </div>
-        <div className="case-grid section-shell">
-          <aside className="case-sticky">
-            <p className="case-role">我的角色</p>
-            <h3>从 0 到 1 的<br />完整产品链路</h3>
-            <p>
-              在月之暗面实习期间，我实际承担产品经理职责：研究用户问题、定义方案、建立评测、协同研发，并持续追踪上线后的失败模式。
-            </p>
-            <dl className="case-facts">
-              <div><dt>Scope</dt><dd>Research → Ship</dd></div>
-              <div><dt>Focus</dt><dd>AI Search / Shopping</dd></div>
-              <div><dt>Method</dt><dd>Evidence-led iteration</dd></div>
-            </dl>
-          </aside>
-          <div className="case-stages">
-            {shoppingStages.map((stage) => (
-              <article className="case-stage" key={stage.index}>
-                <span className="stage-index">{stage.index}</span>
-                <p className="stage-meta">{stage.meta}</p>
-                <h3>{stage.title}</h3>
-                <p>{stage.copy}</p>
-              </article>
+
+        <div className="skills-marquee" aria-label="能力关键词">
+          <div className="marquee-track">
+            {[...skillGroups, ...skillGroups].map((skill, index) => (
+              <span key={skill + "-" + index}>{skill}</span>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="case-library" aria-labelledby="library-title">
-        <div className="case-library-head section-shell">
-          <p className="eyebrow">MORE SYSTEMS I BUILT</p>
-          <h2 id="library-title">一个项目之外，<br />我还在搭系统。</h2>
+      <section className="experience chapter" id="experience" aria-labelledby="experience-title">
+        <div className="experience-layout section-shell">
+          <aside className="experience-sticky">
+            <p className="eyebrow">EXPERIENCE</p>
+            <h2 id="experience-title">实习经历</h2>
+            <p>只保留两段最能说明产品能力与业务判断的经历。</p>
+          </aside>
+
+          <div className="experience-stack">
+            <article className="experience-card moonshot-card">
+              <header>
+                <div>
+                  <p className="card-kicker">近期经历</p>
+                  <h3>月之暗面 · Kimi</h3>
+                </div>
+                <p className="experience-role">搜索产品运营 / AI 搜索产品</p>
+              </header>
+              <p className="experience-intro">
+                深度参与 Kimi 搜索产品和大模型配套工具建设，实际承担 Shopping Tool 从需求研究、方案设计、Demo 开发，到评测、上线和持续迭代的完整产品经理工作。
+              </p>
+              <div className="experience-detail-grid">
+                <div>
+                  <h4>Shopping Tool 0→1</h4>
+                  <ul>
+                    <li>建立 AI 购物竞品框架，从用户反馈与 Badcase 归纳五类核心问题</li>
+                    <li>完成产品架构、交互、异常兜底和结果排序方案</li>
+                    <li>参与 Demo 与业务代码开发，将检索、聚合和比价策略落地</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>搜索质量与评测</h4>
+                  <ul>
+                    <li>建立问题采集、归因、训练样本与模型验证闭环</li>
+                    <li>从 10万+ 原始语料中整理高价值搜索样本</li>
+                    <li>设计 A/B 实验，验证 Prompt 与 Few-shot 对搜索效果的影响</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="experience-tags">
+                <span>AI 搜索</span><span>产品 0→1</span><span>模型评测</span><span>产品工程化</span>
+              </div>
+            </article>
+
+            <article className="experience-card kuaishou-card">
+              <header>
+                <div>
+                  <p className="card-kicker">2024.07 — 2024.11 · 杭州</p>
+                  <h3>北京快手科技有限公司</h3>
+                </div>
+                <p className="experience-role">产品运营实习生</p>
+              </header>
+              <p className="experience-intro">
+                负责美妆行业商家经营数据分析、选品策略、达人匹配与大促运营，通过数据看板和业务实验支持平台 GMV 增长。
+              </p>
+              <div className="kuaishou-metrics">
+                <div><strong>6万+</strong><span>商家经营数据</span></div>
+                <div><strong>+60%</strong><span>A/B 实验 GMV</span></div>
+                <div><strong>120%</strong><span>818 GMV 完成度</span></div>
+              </div>
+              <ul className="experience-bullets">
+                <li>使用 SQL 搭建数据看板，持续输出业务周报与日报</li>
+                <li>完成 500+ SKU 与 70+ 达人匹配，合作达成率提升 25%</li>
+                <li>推动 200+ 品牌、MCN 与头部达人建立合作</li>
+              </ul>
+              <div className="experience-tags">
+                <span>数据分析</span><span>增长实验</span><span>策略运营</span><span>跨团队协作</span>
+              </div>
+            </article>
+          </div>
         </div>
-        <div className="accordion-row" role="list">
-          {accordions.map((item, index) => {
-            const isActive = activeCase === index;
+
+        <div className="evidence-carousel section-shell">
+          <div className="evidence-controls">
+            <p>经历证据</p>
+            <div>
+              <button type="button" onClick={() => moveEvidence(-1)} aria-label="上一项">←</button>
+              <button type="button" onClick={() => moveEvidence(1)} aria-label="下一项">→</button>
+            </div>
+          </div>
+          <article className="evidence-slide" aria-live="polite">
+            <p className="evidence-value">{experienceEvidence[evidenceIndex].value}</p>
+            <div>
+              <h3>{experienceEvidence[evidenceIndex].label}</h3>
+              <p>{experienceEvidence[evidenceIndex].copy}</p>
+            </div>
+            <p className="evidence-count">{String(evidenceIndex + 1).padStart(2, "0")} / {String(experienceEvidence.length).padStart(2, "0")}</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="projects chapter" id="projects" aria-labelledby="projects-title">
+        <div className="projects-heading section-shell reveal-block">
+          <p className="eyebrow">PROJECTS</p>
+          <h2 id="projects-title">项目经历</h2>
+          <p>两个从问题出发、最终形成可使用 AI 原型的个人项目。</p>
+        </div>
+
+        <div className="project-accordion section-shell" role="list">
+          {projects.map((project, index) => {
+            const isActive = activeProject === index;
             return (
-              <article className={"accordion-panel " + (isActive ? "is-active" : "")} key={item.title} role="listitem">
-                <button
-                  type="button"
-                  aria-expanded={isActive}
-                  onClick={() => setActiveCase(index)}
-                >
-                  <span className="accordion-index">0{index + 1}</span>
-                  <span className="accordion-label">{item.label}</span>
-                  <span className="accordion-toggle" aria-hidden="true">{isActive ? "—" : "+"}</span>
+              <article className={"project-panel " + (isActive ? "is-active" : "")} key={project.name} role="listitem">
+                <button type="button" onClick={() => setActiveProject(index)} aria-expanded={isActive}>
+                  <span>{project.short}</span>
+                  <span aria-hidden="true">{isActive ? "—" : "+"}</span>
                 </button>
-                <div className="accordion-content" aria-hidden={!isActive}>
-                  <p className="accordion-metric">{item.metric}</p>
-                  <h3>{item.title}</h3>
-                  <p>{item.copy}</p>
+                <div className="project-content" aria-hidden={!isActive}>
+                  <div className="project-topline">
+                    <p>{project.subtitle}</p>
+                    <p className="project-metric">{project.metric}</p>
+                  </div>
+                  <h3>{project.name}</h3>
+                  <p className="project-summary">{project.summary}</p>
+                  <div className="project-work">
+                    <h4>我的工作</h4>
+                    <ul>
+                      {project.work.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                  <div className="project-tags">
+                    {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                  </div>
+                  <a className="project-link" href={project.link} target="_blank" rel="noreferrer">
+                    {project.linkLabel} <span aria-hidden="true">↗</span>
+                  </a>
                 </div>
               </article>
             );
@@ -361,64 +386,62 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="proof section-shell" aria-labelledby="proof-title">
-        <div className="proof-head">
-          <p className="eyebrow">EVIDENCE OVER ADJECTIVES</p>
-          <h2 id="proof-title">结果，比自我评价更诚实。</h2>
+      <section className="certificates chapter section-shell" id="certificates" aria-labelledby="certificates-title">
+        <div className="chapter-heading reveal-block">
+          <p className="eyebrow">CERTIFICATES</p>
+          <h2 id="certificates-title">课程证书</h2>
+          <p>持续补足计算机、数据分析与 AI 产品所需的技术基础。</p>
         </div>
-        <div className="signal-track">
-          {signals.map((signal) => (
-            <article className="signal-card" key={signal.label}>
-              <p className="signal-metric">{signal.metric}</p>
-              <h3>{signal.label}</h3>
-              <p>{signal.detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
 
-      <section className="manifesto" id="about">
-        <div className="section-shell">
-          <p className="eyebrow">MY PRODUCT BELIEF</p>
-          <p className="manifesto-copy" aria-label="AI 产品的价值，不是展示模型会什么，而是把不确定性变成用户可以信任的下一步。">
-            {"AI 产品的价值，不是展示模型会什么，而是把不确定性变成用户可以信任的下一步。".split("").map((word, index) => (
-              <span className="reveal-word" key={word + "-" + index}>{word}</span>
-            ))}
-          </p>
+        <div className="credential-row">
+          <article className="credential-card reveal-block">
+            <p className="card-kicker">DATACAMP</p>
+            <h3>Data Analyst<br />in Python</h3>
+            <p>数据处理、清洗、探索性分析与可视化。</p>
+          </article>
+          <article className="credential-card credential-blue reveal-block">
+            <p className="card-kicker">DATACAMP</p>
+            <h3>Associate Data<br />Analyst in SQL</h3>
+            <p>SQL 查询、数据聚合、业务分析与数据驱动决策。</p>
+          </article>
         </div>
-      </section>
 
-      <section className="journey section-shell" id="journey" aria-labelledby="journey-title">
-        <div className="section-heading journey-heading">
-          <p className="eyebrow">JOURNEY</p>
-          <h2 id="journey-title">从内容与研究，<br />走向 AI 产品。</h2>
-        </div>
-        <div className="journey-list">
-          {journey.map((item) => (
-            <article className="journey-item" key={item.place}>
-              <p className="journey-time">{item.time}</p>
-              <div><h3>{item.place}</h3><p>{item.role}</p></div>
-              <p className="journey-copy">{item.copy}</p>
-            </article>
+        <div className="certificate-gallery">
+          {certificates.map((certificate) => (
+            <a
+              className="certificate-card reveal-block"
+              href={certificate.image}
+              target="_blank"
+              rel="noreferrer"
+              key={certificate.title}
+              aria-label={"查看 " + certificate.title + " 证书"}
+            >
+              <div className="certificate-image">
+                <img src={certificate.image} alt={certificate.title + " 课程证书"} loading="lazy" />
+              </div>
+              <div>
+                <p>{certificate.type}</p>
+                <h3>{certificate.title}</h3>
+                <span>查看证书 ↗</span>
+              </div>
+            </a>
           ))}
         </div>
       </section>
 
       <footer className="footer" id="contact">
         <div className="section-shell">
-          <p className="eyebrow">WHAT SHOULD WE BUILD NEXT?</p>
+          <p className="eyebrow">LET&apos;S BUILD SOMETHING USEFUL</p>
           <h2>有一个值得<br />认真解决的问题？</h2>
-          <a className="footer-mail" href="mailto:18357132117@163.com">
-            18357132117@163.com
-          </a>
+          <a className="footer-mail" href="mailto:hyp190524@126.com">hyp190524@126.com</a>
           <div className="footer-bottom">
             <p>黄奕平 · AI Product Manager</p>
             <nav aria-label="页脚链接">
               <a href="https://github.com/HYP190524" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="https://huggingface.co/HYP190524" target="_blank" rel="noreferrer">Hugging Face</a>
+              <a href="https://huggingface.co/JulieH0524" target="_blank" rel="noreferrer">Hugging Face</a>
               <a href="/yiping-huang-resume-2025.pdf" download>Resume</a>
             </nav>
-            <a href="#top">Back to top ↑</a>
+            <a href="#top">返回顶部 ↑</a>
           </div>
         </div>
       </footer>

@@ -484,8 +484,11 @@ export default function Portfolio() {
 
       <footer className="footer" id="contact">
         <div className="section-shell">
-          <p className="eyebrow">LET&apos;S BUILD SOMETHING USEFUL</p>
-          <h2>有一个值得<br />认真解决的问题？</h2>
+          <p className="eyebrow">COME SAY HI</p>
+          <h2>
+            <span>Let&apos;s talk AI—</span>
+            <span>or anything, really.</span>
+          </h2>
           <a className="footer-mail" href="mailto:hyp190524@163.com">hyp190524@163.com</a>
           <div className="footer-bottom">
             <p>黄奕平 · AI Product Manager</p>

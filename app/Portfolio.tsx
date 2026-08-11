@@ -162,7 +162,7 @@ export default function Portfolio() {
         <details className="contact-menu">
           <summary>联系我</summary>
           <div className="contact-popover">
-            <p>保持联系</p>
+                <p>keep in touch</p>
             <a href="mailto:hyp190524@163.com">
               <span>邮箱</span>
               <strong>hyp190524@163.com</strong>

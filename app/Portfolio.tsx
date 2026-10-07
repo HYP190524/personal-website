@@ -143,6 +143,7 @@ const englishProjectCopy: Record<string, Partial<Project>> = {
       { src: "/projects/ai-investment-learning-workstation/ai-coach.png", alt: "Price trend and AI investment coach", caption: "Price trends and preset questions for the AI coach" },
       { src: "/projects/ai-investment-learning-workstation/allocation-analysis.png", alt: "Sector and asset-type analysis", caption: "Sector and asset-type allocation" },
       { src: "/projects/ai-investment-learning-workstation/market-valuation.png", alt: "US market valuation indicators", caption: "US market valuation indicators and long-term trend" },
+      { src: "/projects/ai-investment-learning-workstation/evaluation-results.png", alt: "Evaluation results across market intelligence quality metrics", caption: "Evaluation results: quality metrics, thresholds, and pass rates" },
     ],
   },
 };
@@ -199,6 +200,11 @@ const projects: Project[] = [
         src: "/projects/ai-investment-learning-workstation/market-valuation.png",
         alt: "港美股 AI 投资学习工作台的美国市场估值指标界面",
         caption: "美国市场估值指标与长期趋势",
+      },
+      {
+        src: "/projects/ai-investment-learning-workstation/evaluation-results.png",
+        alt: "港美股 AI 投资学习工作台的评测结果指标面板",
+        caption: "评测结果：质量指标、阈值与通过率",
       },
     ],
   },
